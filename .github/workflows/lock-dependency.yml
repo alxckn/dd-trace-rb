@@ -4,6 +4,9 @@ name: Lock Dependencies
 # TODO: Make this on workflow_dispatch
 
 on:
+  push:
+    branches:
+    - tonycthsu/*
   pull_request:
     branches:
     - master
