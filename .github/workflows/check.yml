@@ -4,6 +4,7 @@ on: # yamllint disable-line rule:truthy
   push:
     branches:
       - master
+      - tonycthsu/*
   pull_request:
     branches:
       - master
@@ -125,8 +126,7 @@ jobs:
           semgrep ci \
           --include=bin/* \
           --include=ext/* \
-          --include=lib/* \
-          --exclude-rule=ruby.lang.security.model-attributes-attr-accessible.model-attributes-attr-accessible
+          --include=lib/*
         env:
           SEMGREP_RULES: p/default
 
