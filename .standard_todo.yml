@@ -33,7 +33,6 @@ ignore:
 - lib/*
 - lib/datadog/*
 - lib/datadog/appsec/**/**
-- lib/datadog/core/**/**
 - lib/datadog/kit/**/**
 - lib/datadog/opentelemetry/**/**
 - lib/datadog/tracing/**/**
