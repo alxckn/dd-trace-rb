@@ -56,13 +56,10 @@ module Datadog
           remote_features_enabled? ? ASM_PRODUCTS : []
         end
 
-        # rubocop:disable Metrics/MethodLength
-        # rubocop:disable Metrics/CyclomaticComplexity
         def receivers(telemetry)
           return [] unless remote_features_enabled?
 
           matcher = Core::Remote::Dispatcher::Matcher::Product.new(ASM_PRODUCTS)
-          # rubocop:disable Metrics/BlockLength
           receiver = Core::Remote::Dispatcher::Receiver.new(matcher) do |repository, changes|
             changes.each do |change|
               Datadog.logger.debug { "remote config change: '#{change.path}'" }
@@ -118,12 +115,9 @@ module Datadog
               content.applied if ASM_PRODUCTS.include?(content.path.product)
             end
           end
-          # rubocop:enable Metrics/BlockLength
 
           [receiver]
         end
-        # rubocop:enable Metrics/MethodLength
-        # rubocop:enable Metrics/CyclomaticComplexity
 
         private
 

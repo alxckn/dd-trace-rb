@@ -9,12 +9,7 @@ module Datadog
     module Configuration
       # Configuration settings for tracing.
       # @public_api
-      # rubocop:disable Metrics/AbcSize
-      # rubocop:disable Metrics/BlockLength
-      # rubocop:disable Metrics/MethodLength
       # rubocop:disable Layout/LineLength
-      # rubocop:disable Metrics/CyclomaticComplexity
-      # rubocop:disable Metrics/PerceivedComplexity
       module Settings
         def self.extended(base)
           base.class_eval do
@@ -472,12 +467,7 @@ module Datadog
           end
         end
       end
-      # rubocop:enable Metrics/AbcSize
-      # rubocop:enable Metrics/BlockLength
-      # rubocop:enable Metrics/MethodLength
       # rubocop:enable Layout/LineLength
-      # rubocop:enable Metrics/CyclomaticComplexity
-      # rubocop:enable Metrics/PerceivedComplexity
     end
   end
 end

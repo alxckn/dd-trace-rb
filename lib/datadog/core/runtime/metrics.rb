@@ -147,7 +147,6 @@ module Datadog
           gauge(metric_name, metric_value) if metric_value
         end
 
-        # rubocop:disable Metrics/MethodLength
         def flush_yjit_stats
           # Only on Ruby >= 3.2
           try_flush do
@@ -195,7 +194,6 @@ module Datadog
             end
           end
         end
-        # rubocop:enable Metrics/MethodLength
       end
     end
   end

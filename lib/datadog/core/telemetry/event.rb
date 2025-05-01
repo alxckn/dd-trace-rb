@@ -107,8 +107,6 @@ module Datadog
             tracing.sampling.rate_limit
           ].freeze
 
-          # rubocop:disable Metrics/AbcSize
-          # rubocop:disable Metrics/MethodLength
           def configuration
             config = Datadog.configuration
             seq_id = Event.configuration_sequence.next
@@ -171,8 +169,6 @@ module Datadog
             list.reject! { |entry| entry[:value].nil? }
             list
           end
-          # rubocop:enable Metrics/AbcSize
-          # rubocop:enable Metrics/MethodLength
 
           def agent_transport(config)
             adapter = Core::Configuration::AgentSettingsResolver.call(config).adapter

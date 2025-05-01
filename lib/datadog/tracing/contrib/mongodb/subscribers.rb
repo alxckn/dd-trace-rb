@@ -15,7 +15,6 @@ module Datadog
         # `MongoCommandSubscriber` listens to all events from the `Monitoring`
         # system available in the Mongo driver.
         class MongoCommandSubscriber
-          # rubocop:disable Metrics/AbcSize
           def started(event)
             return unless Tracing.enabled?
 
@@ -75,7 +74,6 @@ module Datadog
           rescue StandardError => e
             Datadog.logger.debug("error when handling MongoDB 'started' event: #{e}")
           end
-          # rubocop:enable Metrics/AbcSize
 
           def failed(event)
             span = get_span(event)

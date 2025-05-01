@@ -37,8 +37,6 @@ module Datadog
         :profiling_enabled,
         :apm_tracing_enabled
 
-      # rubocop:disable Metrics/CyclomaticComplexity
-      # rubocop:disable Metrics/PerceivedComplexity
       # @param spans [Array<Datadog::Span>]
       def initialize(
         spans,
@@ -89,8 +87,6 @@ module Datadog
         @profiling_enabled = profiling_enabled
         @apm_tracing_enabled = apm_tracing_enabled
       end
-      # rubocop:enable Metrics/PerceivedComplexity
-      # rubocop:enable Metrics/CyclomaticComplexity
 
       def any?
         @spans.any?

@@ -33,9 +33,6 @@ module Datadog
         # @param others [Hash<Symbol, String>] Additional free-form
         #   user information to attach to the trace.
         #
-        # rubocop:disable Metrics/AbcSize
-        # rubocop:disable Metrics/CyclomaticComplexity
-        # rubocop:disable Metrics/PerceivedComplexity
         def set_user(
           trace = nil, span = nil, id:, email: nil, name: nil, session_id: nil, role: nil, scope: nil, **others
         )
@@ -75,9 +72,6 @@ module Datadog
             end
           end
         end
-        # rubocop:enable Metrics/AbcSize
-        # rubocop:enable Metrics/PerceivedComplexity
-        # rubocop:enable Metrics/CyclomaticComplexity
 
         private
 

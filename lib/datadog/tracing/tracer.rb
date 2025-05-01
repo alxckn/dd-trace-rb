@@ -129,7 +129,6 @@ module Datadog
       # @yield Optional block where new newly created {Datadog::Tracing::SpanOperation} captures the execution.
       # @yieldparam [Datadog::Tracing::SpanOperation] span_op the newly created and active [Datadog::Tracing::SpanOperation]
       # @yieldparam [Datadog::Tracing::TraceOperation] trace_op the active [Datadog::Tracing::TraceOperation]
-      # rubocop:disable Metrics/MethodLength
       def trace(
         name,
         continue_from: nil,
@@ -194,7 +193,6 @@ module Datadog
           )
         end
       end
-      # rubocop:enable Metrics/MethodLength
 
       # Set the given key / value tag pair at the tracer level. These tags will be
       # appended to each span created by the tracer. Keys and values must be strings.

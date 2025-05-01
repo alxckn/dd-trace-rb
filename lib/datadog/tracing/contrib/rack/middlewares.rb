@@ -101,10 +101,6 @@ module Datadog
             end
           end
 
-          # rubocop:disable Metrics/AbcSize
-          # rubocop:disable Metrics/CyclomaticComplexity
-          # rubocop:disable Metrics/PerceivedComplexity
-          # rubocop:disable Metrics/MethodLength
           def set_request_tags!(trace, request_span, env, status, headers, response, original_env)
             request_header_collection = Header::RequestHeaderCollection.new(env)
 
@@ -229,10 +225,6 @@ module Datadog
             # unless it has been already set by the underlying framework
             request_span.status = 1 if status.to_s.start_with?('5') && request_span.status.zero?
           end
-          # rubocop:enable Metrics/AbcSize
-          # rubocop:enable Metrics/CyclomaticComplexity
-          # rubocop:enable Metrics/PerceivedComplexity
-          # rubocop:enable Metrics/MethodLength
 
           private
 

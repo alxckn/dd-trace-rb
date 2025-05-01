@@ -28,8 +28,6 @@ module Datadog
 
           private
 
-          # rubocop:disable Metrics/AbcSize
-          # rubocop:disable Metrics/MethodLength
           def annotate!(span, context)
             span.service = configuration[:service_name]
             span.type = Tracing::Metadata::Ext::HTTP::TYPE_OUTBOUND
@@ -81,8 +79,6 @@ module Datadog
             Datadog.logger.error(e.message)
             Datadog::Core::Telemetry::Logger.report(e)
           end
-          # rubocop:enable Metrics/MethodLength
-          # rubocop:enable Metrics/AbcSize
 
           def configuration
             Datadog.configuration.tracing[:aws]

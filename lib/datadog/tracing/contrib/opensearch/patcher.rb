@@ -28,11 +28,8 @@ module Datadog
 
           # Patches OpenSearch::Transport::Client module
           module Client
-            # rubocop:disable Metrics/MethodLength
-            # rubocop:disable Metrics/AbcSize
             def perform_request(method, path, params = {}, body = nil, headers = nil)
               response = nil
-              # rubocop:disable Metrics/BlockLength
               Tracing.trace('opensearch.query', service: datadog_configuration[:service_name]) do |span|
                 begin
                   # Set generic tags
@@ -110,8 +107,6 @@ module Datadog
                   end
                 end
               end
-              # rubocop:enable Metrics/BlockLength
-              # rubocop:enable Metrics/AbcSize
               response
             end
 
@@ -138,7 +133,6 @@ module Datadog
               Datadog.configuration.tracing[:opensearch]
             end
           end
-          # rubocop:enable Metrics/MethodLength
         end
       end
     end

@@ -43,7 +43,6 @@ module Datadog
 
           attr_reader :app
 
-          # rubocop:disable Metrics/AbcSize
           def annotate!(span, env, options)
             span.resource = resource_name(env)
             span.service = service_name(env[:url].host, options)
@@ -86,7 +85,6 @@ module Datadog
             Datadog.logger.error(e.message)
             Datadog::Core::Telemetry::Logger.report(e)
           end
-          # rubocop:enable Metrics/AbcSize
 
           def handle_response(span, env, options)
             span.set_error(["Error #{env[:status]}", env[:body]]) if options[:error_status_codes].include? env[:status]

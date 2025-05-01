@@ -65,7 +65,6 @@ module Datadog
         # semantic convention for span kind and span attributes.
         # @see https://opentelemetry.io/docs/specs/semconv/general/trace/
 
-        # rubocop:disable Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity
         def self.enrich_name(kind, attrs)
           if attrs.key?('http.request.method')
             return 'http.server.request' if kind == :server
@@ -115,7 +114,6 @@ module Datadog
 
           kind.to_s
         end
-        # rubocop:enable Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity
 
         private
 

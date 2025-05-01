@@ -39,9 +39,6 @@ module Datadog
               _parse_options(options)
             end
 
-            # rubocop:disable Metrics/AbcSize
-            # rubocop:disable Metrics/MethodLength
-            # rubocop:disable Metrics/PerceivedComplexity
             #
             # This method is a subset of the implementation provided in v3.0.0
             # https://github.com/redis/redis-rb/blob/v3.0.0/lib/redis/client.rb
@@ -149,9 +146,6 @@ module Datadog
               options
             end
 
-            # rubocop:enable Metrics/AbcSize
-            # rubocop:enable Metrics/MethodLength
-            # rubocop:enable Metrics/PerceivedComplexity
           end
         end
       end

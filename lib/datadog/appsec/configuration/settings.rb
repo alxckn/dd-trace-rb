@@ -41,7 +41,6 @@ module Datadog
           add_settings!(base)
         end
 
-        # rubocop:disable Metrics/AbcSize,Metrics/MethodLength,Metrics/BlockLength,Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity
         def self.add_settings!(base)
           base.class_eval do
             settings :appsec do
@@ -322,7 +321,6 @@ module Datadog
             end
           end
         end
-        # rubocop:enable Metrics/AbcSize,Metrics/MethodLength,Metrics/BlockLength,Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity
       end
     end
   end

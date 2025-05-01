@@ -14,10 +14,7 @@ module Datadog
         module Instrumentation
           module_function
 
-          # rubocop:disable Metrics/MethodLength
-          # rubocop:disable Metrics/AbcSize
           def patch!
-            # rubocop:disable Metrics/BlockLength
             ::SuckerPunch::Job::ClassMethods.class_eval do
               alias_method :__run_perform_without_datadog, :__run_perform
               def __run_perform(*args)
@@ -93,10 +90,7 @@ module Datadog
                 end
               end
             end
-            # rubocop:enable Metrics/BlockLength
           end
-          # rubocop:enable Metrics/MethodLength
-          # rubocop:enable Metrics/AbcSize
         end
       end
     end

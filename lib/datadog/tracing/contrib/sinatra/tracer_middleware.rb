@@ -18,7 +18,6 @@ module Datadog
             @app_instance = opt[:app_instance]
           end
 
-          # rubocop:disable Metrics/MethodLength
           def call(env)
             # Find out if this is Sinatra within Sinatra
             return @app.call(env) if Sinatra::Env.datadog_span(env)
@@ -87,7 +86,6 @@ module Datadog
               end
             end
           end
-          # rubocop:enable Metrics/MethodLength
 
           private
 

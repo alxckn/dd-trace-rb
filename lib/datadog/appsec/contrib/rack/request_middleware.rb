@@ -39,7 +39,6 @@ module Datadog
             @rack_headers = {}
           end
 
-          # rubocop:disable Metrics/MethodLength
           def call(env)
             return @app.call(env) unless Datadog::AppSec.enabled?
 
@@ -115,7 +114,6 @@ module Datadog
               Datadog::AppSec::Context.deactivate
             end
           end
-          # rubocop:enable Metrics/MethodLength
 
           private
 

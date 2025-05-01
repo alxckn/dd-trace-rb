@@ -34,8 +34,6 @@ module Datadog
 
           # Patches Elasticsearch::Transport::Client module
           module Client
-            # rubocop:disable Metrics/MethodLength
-            # rubocop:disable Metrics/AbcSize
             def perform_request(*args)
               # `Client#transport` is the most convenient object both for this integration and the library
               # as users have shared access to it across all `elasticsearch` versions.
@@ -136,8 +134,6 @@ module Datadog
               Datadog.configuration.tracing[:elasticsearch]
             end
           end
-          # rubocop:enable Metrics/MethodLength
-          # rubocop:enable Metrics/AbcSize
 
           # Patch to support both `elasticsearch` and `elastic-transport` versions
           module DatadogPin

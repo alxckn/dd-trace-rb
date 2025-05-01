@@ -64,8 +64,6 @@ module Datadog
         # as we don't have to create an intermediate Hash.
         #
         # @param packer [MessagePack::Packer] serialization buffer, can be +nil+ with JRuby
-        # rubocop:disable Metrics/AbcSize
-        # rubocop:disable Metrics/MethodLength
         def to_msgpack(packer = nil)
           packer ||= MessagePack::Packer.new
 
@@ -125,8 +123,6 @@ module Datadog
           packer.write(span.status)
           packer
         end
-        # rubocop:enable Metrics/AbcSize
-        # rubocop:enable Metrics/MethodLength
 
         # JSON serializer interface.
         # Used by older version of the transport.
