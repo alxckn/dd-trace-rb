@@ -28,7 +28,11 @@ module Datadog
           Datadog.logger.debug { "Telemetry sent for event `#{event.type}` (code: #{res.code.inspect})" }
           res
         rescue => e
-          Datadog.logger.debug("Unable to send telemetry request for event `#{event.type rescue 'unknown'}`: #{e}")
+          Datadog.logger.debug("Unable to send telemetry request for event `#{begin
+            event.type
+          rescue
+            "unknown"
+          end}`: #{e}")
           Telemetry::Http::InternalErrorResponse.new(e)
         end
 

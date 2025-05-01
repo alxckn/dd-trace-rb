@@ -74,10 +74,10 @@ module Datadog
           #
           # Versions < 5.0 are always single-threaded, but do not have the kwarg option.
           options = if dogstatsd_version >= Gem::Version.new('5.2')
-                      { single_thread: true }
-                    else
-                      {}
-                    end
+            {single_thread: true}
+          else
+            {}
+          end
 
           Datadog::Statsd.new(default_hostname, default_port, **options)
         end
@@ -98,7 +98,7 @@ module Datadog
           raise ArgumentError if value.nil?
 
           statsd.count(stat, value, metric_options(options))
-        rescue StandardError => e
+        rescue => e
           logger.error(
             "Failed to send count stat. Cause: #{e.class.name} #{e.message} Source: #{Array(e.backtrace).first}"
           )
@@ -112,7 +112,7 @@ module Datadog
           raise ArgumentError if value.nil?
 
           statsd.distribution(stat, value, metric_options(options))
-        rescue StandardError => e
+        rescue => e
           logger.error(
             "Failed to send distribution stat. Cause: #{e.class.name} #{e.message} Source: #{Array(e.backtrace).first}"
           )
@@ -125,7 +125,7 @@ module Datadog
           options = yield if block_given?
 
           statsd.increment(stat, metric_options(options))
-        rescue StandardError => e
+        rescue => e
           logger.error(
             "Failed to send increment stat. Cause: #{e.class.name} #{e.message} Source: #{Array(e.backtrace).first}"
           )
@@ -139,7 +139,7 @@ module Datadog
           raise ArgumentError if value.nil?
 
           statsd.gauge(stat, value, metric_options(options))
-        rescue StandardError => e
+        rescue => e
           logger.error(
             "Failed to send gauge stat. Cause: #{e.class.name} #{e.message} Source: #{Array(e.backtrace).first}"
           )
@@ -158,7 +158,7 @@ module Datadog
               finished = Utils::Time.get_time
               distribution(stat, ((finished - start) * 1000), options)
             end
-          rescue StandardError => e
+          rescue => e
             # TODO: Likely to be redundant, since `distribution` handles its own errors.
             logger.error(
               "Failed to send time stat. Cause: #{e.class.name} #{e.message} Source: #{Array(e.backtrace).first}"

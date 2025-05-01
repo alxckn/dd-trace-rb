@@ -42,7 +42,7 @@ module Datadog
               end
 
               Response.new(http_response)
-            rescue StandardError => e
+            rescue => e
               Datadog.logger.debug("Unable to send telemetry event to agent: #{e}")
               Telemetry::Http::InternalErrorResponse.new(e)
             end

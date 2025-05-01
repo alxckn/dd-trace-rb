@@ -39,7 +39,7 @@ module Datadog
           end
 
           # @see #==
-          alias eql? ==
+          alias_method :eql?, :==
 
           # @see #==
           def hash
@@ -215,7 +215,7 @@ module Datadog
           end
 
           def payload
-            { dependencies: dependencies }
+            {dependencies: dependencies}
           end
 
           private
@@ -238,7 +238,7 @@ module Datadog
           end
 
           def payload
-            { integrations: integrations }
+            {integrations: integrations}
           end
 
           private
@@ -293,7 +293,7 @@ module Datadog
           end
 
           def payload
-            { configuration: configuration }
+            {configuration: configuration}
           end
 
           def configuration
@@ -325,7 +325,7 @@ module Datadog
             other.is_a?(AppClientConfigurationChange) && other.changes == @changes && other.origin == @origin
           end
 
-          alias eql? ==
+          alias_method :eql?, :==
 
           def hash
             [self.class, @changes, @origin].hash
@@ -371,7 +371,7 @@ module Datadog
             other.is_a?(GenerateMetrics) && other.namespace == @namespace && other.metric_series == @metric_series
           end
 
-          alias eql? ==
+          alias_method :eql?, :==
 
           def hash
             [self.class, @namespace, @metric_series].hash
@@ -436,7 +436,7 @@ module Datadog
               other.level == @level && other.stack_trace == @stack_trace && other.count == @count
           end
 
-          alias eql? ==
+          alias_method :eql?, :==
 
           def hash
             [self.class, @message, @level, @stack_trace, @count].hash
@@ -475,7 +475,7 @@ module Datadog
             other.is_a?(MessageBatch) && other.events == @events
           end
 
-          alias eql? ==
+          alias_method :eql?, :==
 
           def hash
             [self.class, @events].hash
